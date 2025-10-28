@@ -1,3 +1,3 @@
 ID | Quality Attribute | Scenario | Associated Use Case
 --- | --- | --- | ---
-Seconds | 301 | 283 | 290
+QA-1 | test | test | test

@@ -54,6 +54,7 @@ In this iteration, we are creating the preliminary software architecture, so we 
 | **Add a Role and Authorization sub-component in the Business Logic layer** | After SSO login, this component checks whether the user is a lecturer, student, or admin before allowing operations like creating reminders. This directly enforces CON-2 and supports UC-7 by ensuring only lecturers can post academic data. |
 
 ## Step 6: Sketch Views and Record Design Decisions
+![alt text](<ADD Iteration 2 Diagrams/Diagram.png>)
 
 | Element | Responsibility |
 |---------|----------------|

@@ -81,9 +81,11 @@ In this iteration, we will be going through a selection of design options that s
 Design decision results will be laid out in the next step.
 
 
-#### Step 6: Sketch Views and Record Design Decisions
+## Step 6: Sketch Views and Record Design Decisions
 
-## Component Descriptions
+![alt text](<ADD Iteration 1 Diagrams/RichInternetApplicationDiagram.png>)
+
+### Component Descriptions
 
 The table below describes each component, layer, and block of the diagram.
 
@@ -111,7 +113,9 @@ The table below describes each component, layer, and block of the diagram.
 | Database | External data storage system. |
 | External Systems | Third-party systems and integrations like registration, LMS, and calendars. |
 
-## Load Balanced Cluster Deployment Pattern
+### Load Balanced Cluster Deployment Pattern
+
+![alt text](<ADD Iteration 1 Diagrams/LoadBalancedClusterDiagram.png>)
 
 The table below outlines the elements of each module of the load balanced cluster deployment pattern.
 
@@ -125,7 +129,7 @@ The table below outlines the elements of each module of the load balanced cluste
 | Database Server | Hosts the database system and manages data storage, retrieval, and persistence. |
 | External Systems | Hosts the data that external systems can provide. |
 
-## Module Relationships
+### Module Relationships
 
 The table below outlines details about the relationships between modules.
 
@@ -140,9 +144,7 @@ The table below outlines details about the relationships between modules.
 
 
 
-# Step 7: Perform Analysis of Current Design and Review Iteration
-
-## Design Decisions Made During Iteration
+## Step 7: Perform Analysis of Current Design and Review Iteration
 
 ### Use Cases
 

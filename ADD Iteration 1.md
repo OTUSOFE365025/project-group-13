@@ -79,3 +79,109 @@ In this iteration, we will be going through a selection of design options that s
 | **Addition of external systems to the deployment pattern** | External systems will be located within the data layer as we are only referring to external system data (R3). |
 
 Design decision results will be laid out in the next step.
+
+
+#### Step 6: Sketch Views and Record Design Decisions
+
+## Component Descriptions
+
+The table below describes each component, layer, and block of the diagram.
+
+| Element | Responsibility |
+|---------|---------------|
+| Client | The container that houses components within the client machine. |
+| Browser | Web browser environment hosting the application. |
+| Plug-in execution container | Container for executing plug-ins and extensions. |
+| Rich UI Engine | Handles rich user interface rendering and interactions. |
+| Presentation | Manages the presentation layer and UI components. |
+| LocalStorage | Client-side storage for recent chat response data persistence. |
+| Service Interfaces | Defines the contracts and APIs for services like the AI model and reaching business logic. |
+| Message Types | Defines message structures and data formats for communication. |
+| Application Facade | Provides a simplified interface to business layer complexity. |
+| Business Workflow | Manages business process flows and orchestration. |
+| Business Logic | Contains core business rules and processing logic. |
+| Business Entities | Represents business domain objects and models. |
+| Data Access | Handles database queries and data operations. |
+| Helpers and Utilities | Provides common utility functions and helper methods to access the database. |
+| Service Agents | Manages communication with external services like registration, LMS, and calendars. |
+| Security | Handles authentication, authorization, and security policies. |
+| Operational Management | Manages monitoring, logging, and operational metrics. |
+| Communication | Manages inter-component and inter-system communication. |
+| AI Model | Provides artificial intelligence and machine learning capabilities that should provide responses to the user via their response passed through Service Interfaces, formatted with Message Types, and based on relevant information like the external systems and the database. |
+| Database | External data storage system. |
+| External Systems | Third-party systems and integrations like registration, LMS, and calendars. |
+
+## Load Balanced Cluster Deployment Pattern
+
+The table below outlines the elements of each module of the load balanced cluster deployment pattern.
+
+| Element | Responsibility |
+|---------|---------------|
+| Client | The client application that initiates requests to the system. |
+| Firewall (Client-side) | Security layer that protects the internal network from external threats and filters incoming traffic. |
+| Load Balancer | Distributes incoming client requests across multiple application server instances. |
+| Instance n: Application Server | Individual server instances that host server-side application logic and process client requests, facilitating data retrieval. |
+| Firewall (Database-side) | Security layer that protects the database server and controls access between application servers and the database. |
+| Database Server | Hosts the database system and manages data storage, retrieval, and persistence. |
+| External Systems | Hosts the data that external systems can provide. |
+
+## Module Relationships
+
+The table below outlines details about the relationships between modules.
+
+| Relationship | Description |
+|-------------|-------------|
+| Between Client and Firewall (Client-side) | Client requests pass through the firewall for security inspection before entering the internal network. |
+| Between Firewall (Client-side) and Load Balancer | Filtered traffic is forwarded to the load balancer for distribution. |
+| Between Load Balancer and Application Server Instances | Load balancer distributes requests across multiple application server instances. |
+| Between Application Server Instances and Firewall (Database-side) | Application servers communicate with the database through a firewall for secure database access. |
+| Between Firewall (Database-side) and Database Server | Authorized database queries and commands are passed through the firewall to the database server. |
+| Between Firewall (Database-side) and External Systems | Authorized database queries and commands are passed through the firewall to the external systems endpoints. |
+
+
+
+# Step 7: Perform Analysis of Current Design and Review Iteration
+
+## Design Decisions Made During Iteration
+
+### Use Cases
+
+| ID | Status | Analysis |
+|----|--------|----------|
+| UC-1 | Completely Addressed | The external systems are integrated and well represented in the diagrams we have made in this iteration. It is also addressed that if the external system exposes API endpoints with some sort of authorization, we can draw data through those. |
+| UC-2 | Completely Addressed | This ties into the external system integration, assuming we can obtain the event data from the LMS, we should be able to integrate an export feature for upcoming events in the form of a formatted .CSV file that should be easily compatible with something like google calendar. |
+| UC-3 | Completely Addressed | This should be addressed in the business layer of the Rich Internet Application diagram. We can control the logic to change user preferences and save these in the database. |
+| UC-4 | Partially Addressed | This one is not fully clear. This can be addressed in the database if there isn't a response for a question asked by the user. |
+| UC-5 | Completely Addressed | This should be completely addressed via caching their most recent chat history in local storage on the client side. |
+| UC-6 | Completely Addressed | The security component of the Rich Internet Application diagram should check valid credentials for each page and single sign-on is addressed using an external system provided by the school to verify credentials. |
+| UC-7 | Completely Addressed | This use case can be satisfied through some sort of business logic in the business layer of the Rich Internet Application diagram created to notify students at the set time. |
+| UC-8 | Completely Addressed | Selected reference architecture should fully cover the dashboard with analytics and error logs for the client, which should be a verified System Maintainer. |
+| UC-9 | Not Addressed | Not addressed in this iteration. It is crucial to identify all the components associated with this use case. |
+| UC-10 | Completely Addressed | The load balancing cluster diagram should address this very well, as we use a load balancer to distribute user load across a multitude of cloud containers that increase or decrease according to traffic. |
+
+### Quality Attributes
+
+| ID | Status | Analysis |
+|----|--------|----------|
+| QA-1 | Completely Addressed | Can be addressed by updating individual cloud containers. |
+| QA-2 | Completely Addressed | This is addressed through the multiple cloud containers. If one goes down, we can have the other containers take on and distribute the load. In terms of restoring user data, we can do the same as UC-4 with just using the business logic to verify user query vs. their paired responses. If one query is missing a response, we can pick up on it and get the AI model to process it. |
+| QA-3 | Completely Addressed | This should be addressed externally through the SSO of the school system. Mainly authentication should be carried out on each page but with a carried token either in local storage or protocoled cookies. |
+| QA-4 | Completely Addressed | Cloud containers are scaled up and down according to traffic. Additionally, a load balancer is put into play to distribute load across the multiple cloud containers. |
+| QA-5 | Completely Addressed | External systems should have a way to communicate with other related school systems. This would allow the business layer to extract data from the external systems. |
+
+### Constraints
+
+| ID | Status | Analysis |
+|----|--------|----------|
+| CON-1 | Not Addressed | This is not addressed within this iteration. The process would have to be outlined. |
+| CON-2 | Not Addressed | This is not addressed specifically within this iteration. Also needs the process to be outlined explicitly. |
+| CON-3 | Not Addressed | This is not addressed specifically within this iteration. Also needs the process to be outlined explicitly. |
+| CON-4 | Completely Addressed | This is addressed through the performance the load balancer introduces. At peak times, the load balancer will pull its weight. |
+
+### Concerns
+
+| ID | Status | Analysis |
+|----|--------|----------|
+| CRN-1 | Not Addressed | Not addressed, although you could have some sort of facade or interface to interpret. |
+| CRN-2 | Not Addressed | This is not addressed. |
+| CRN-3 | Completely Addressed | This is addressed as we can replace individual cloud containers and have the load balancer redistribute across the leftover containers. |

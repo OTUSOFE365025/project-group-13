@@ -39,7 +39,7 @@ As this is the first iteration, our goal should be to create a preliminary archi
 - **CRN-3:** System may need rapid maintenance in early stages that will violate RS11, so it won't be up 99.5% of each month. (linked to RS11)
 
 ### Context Diagram
-
+![alt text](<ADD Iteration 1 Diagrams/ContextDiagram.png>)
 
 ## Step 3: Choose One or More Elements of the System to Refine
 

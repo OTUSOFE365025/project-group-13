@@ -1,5 +1,3 @@
-# Iteration 3: Addressing Quality Attribute Scenario Driver
-
 ## Step 1: Ensure Clarity of Drivers
 
 | Category | Details |

@@ -46,7 +46,7 @@ Design decision results will be laid out in the next step.
 
 ## Step 6: Sketch Views and Record Design Decisions
 
-**Embed updated load balanced cluster deployment pattern diagram here:**
+![alt text](<ADD Iteration 3 Diagrams/UpdatedLoadBalancedCluster.png>)
 
 ### Module Elements
 

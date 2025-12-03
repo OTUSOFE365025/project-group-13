@@ -76,7 +76,7 @@ The table below outlines details about the relationships between modules.
 | Between Firewall (Database-side) and Database Server | Authorized database queries and commands are passed through the firewall to the database server. |
 | Nodes N and External Systems | Updated information will update from external systems to the nodes. |
 
-![alt text](<ADD Iteration 3 Diagrams/UC9SequenceDiagram.png>)
+![alt text](<ADD Iteration 3 Diagrams/UC9SequenceDiagram.webp>)
 
 **UC-9**: An event organiser decides to reschedule an event. This sends a request to sync the data from source to it's replica, which is the node that contains that information. This also notifies all users associated with that information about the information change.
 

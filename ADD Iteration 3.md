@@ -90,20 +90,20 @@ The table below outlines details about the relationships between modules.
 
 | | Not Addressed | Partially Addressed | Completely Addressed | Design Decisions made during Iteration |
 |---|---------------|---------------------|----------------------|----------------------------------------|
-| **UC-1** | ✓ | | | No relevant decisions were made in this iteration. |
-| **UC-2** | ✓ | | | No relevant decisions were made in this iteration. |
-| **UC-3** | ✓ | | | No relevant decisions were made in this iteration. |
-| **UC-4** | ✓ | | | No relevant decisions were made in this iteration. |
-| **UC-5** | ✓ | | | No relevant decisions were made in this iteration. |
-| **UC-6** | ✓ | | | No relevant decisions were made in this iteration. |
-| **UC-7** | ✓ | | | No relevant decisions were made in this iteration. |
-| **UC-8** | ✓ | | | No relevant decisions were made in this iteration. |
+| **UC-1** | | ✓ | | No relevant decisions were made in this iteration. |
+| **UC-2** | | ✓ | | No relevant decisions were made in this iteration. |
+| **UC-3** | | ✓ | | No relevant decisions were made in this iteration. |
+| **UC-4** | | ✓ | | No relevant decisions were made in this iteration. |
+| **UC-5** | | ✓ | | No relevant decisions were made in this iteration. |
+| **UC-6** | | ✓ | | No relevant decisions were made in this iteration. |
+| **UC-7** | | ✓ | | No relevant decisions were made in this iteration. |
+| **UC-8** | | ✓ | | No relevant decisions were made in this iteration. |
 | **UC-9** | | | ✓ | Outlined a way to sync data within the example in the sequence diagram. |
-| **UC-10** | ✓ | | | No relevant decisions were made in this iteration. |
+| **UC-10** | | ✓ | | No relevant decisions were made in this iteration. |
 | **QA-1** | | | ✓ | Addressed the quality attribute scenario where developers can push updates without taking the system down through the use of active redundancy. Updates can be pushed individually to the replicas and then swapped with the original. |
 | **QA-2** | | ✓ | | This specific quality attribute scenario is not completely addressed, but reliability does increase through the use of active redundancy. |
-| **QA-3** | ✓ | | | No relevant decisions were made in this iteration. |
-| **QA-4** | ✓ | | | No relevant decisions were made in this iteration. |
+| **QA-3** | | ✓ | | No relevant decisions were made in this iteration. |
+| **QA-4** | | ✓ | | No relevant decisions were made in this iteration. |
 | **QA-5** | | | ✓ | Using the Source/Replica strategy, we outline a way to sync data to local database nodes for quick access. |
 | **CON-1** | | | ✓ | With active redundancy in place, data is backed up completely and if changes are made to one database, it propagates to the other. |
 | **CON-2** | ✓ | | | No relevant decisions were made in this iteration. |

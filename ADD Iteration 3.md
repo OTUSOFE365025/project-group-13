@@ -75,3 +75,40 @@ The table below outlines details about the relationships between modules.
 | Between Application Server Instances and Firewall (Database-side) | Application servers communicate with the database through a firewall for secure database access. |
 | Between Firewall (Database-side) and Database Server | Authorized database queries and commands are passed through the firewall to the database server. |
 | Nodes N and External Systems | Updated information will update from external systems to the nodes. |
+
+![alt text](<ADD Iteration 3 Diagrams/UC9SequenceDiagram.png>)
+
+**UC-9**: An event organiser decides to reschedule an event. This sends a request to sync the data from source to it's replica, which is the node that contains that information. This also notifies all users associated with that information about the information change.
+
+| Method name | Description |
+|-------------|-------------|
+| rescheduleEvent() | Request from authorised event organiser to change event date. |
+| syncData() | Upon successful change, sync the associated source data with it's replica data. |
+| notifyParticipants() | Users associated with that data will be notified about the change. |
+
+## Step 7: Perform Analysis of Current Design and Review Iteration
+
+| | Not Addressed | Partially Addressed | Completely Addressed | Design Decisions made during Iteration |
+|---|---------------|---------------------|----------------------|----------------------------------------|
+| **UC-1** | ✓ | | | No relevant decisions were made in this iteration. |
+| **UC-2** | ✓ | | | No relevant decisions were made in this iteration. |
+| **UC-3** | ✓ | | | No relevant decisions were made in this iteration. |
+| **UC-4** | ✓ | | | No relevant decisions were made in this iteration. |
+| **UC-5** | ✓ | | | No relevant decisions were made in this iteration. |
+| **UC-6** | ✓ | | | No relevant decisions were made in this iteration. |
+| **UC-7** | ✓ | | | No relevant decisions were made in this iteration. |
+| **UC-8** | ✓ | | | No relevant decisions were made in this iteration. |
+| **UC-9** | | | ✓ | Outlined a way to sync data within the example in the sequence diagram. |
+| **UC-10** | ✓ | | | No relevant decisions were made in this iteration. |
+| **QA-1** | | | ✓ | Addressed the quality attribute scenario where developers can push updates without taking the system down through the use of active redundancy. Updates can be pushed individually to the replicas and then swapped with the original. |
+| **QA-2** | | ✓ | | This specific quality attribute scenario is not completely addressed, but reliability does increase through the use of active redundancy. |
+| **QA-3** | ✓ | | | No relevant decisions were made in this iteration. |
+| **QA-4** | ✓ | | | No relevant decisions were made in this iteration. |
+| **QA-5** | | | ✓ | Using the Source/Replica strategy, we outline a way to sync data to local database nodes for quick access. |
+| **CON-1** | | | ✓ | With active redundancy in place, data is backed up completely and if changes are made to one database, it propagates to the other. |
+| **CON-2** | ✓ | | | No relevant decisions were made in this iteration. |
+| **CON-3** | | ✓ | | Syncing is covered, but retries are not explicitly covered. |
+| **CON-4** | | ✓ | | With higher reliability through active redundancy, we partially address this constraint. |
+| **CRN-1** | ✓ | | | No relevant decisions were made in this iteration. |
+| **CRN-2** | | ✓ | | Data retrieval being slow is partially addressed by having separate data nodes that are local, so these would be significantly faster than sending direct requests for data from the source. |
+| **CRN-3** | | ✓ | | Active redundancy partially addresses this concern by being able to push updates without downing the whole system. |

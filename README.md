@@ -59,4 +59,4 @@
 
 To conclude, the ATAM process brings up relevant risks and concerns that are not addressed across the current 3 iterations, such as data integrity, data syncing failures and retries, changing external data from AIDAP, state management, and what data we should keep on local nodes. Availability should be added as a QA-6, as the tactic of active redundancy contributes towards that. This would have the scenario of "Load distribution and scalable cloud containers help keep the system available during peak hours." These will need to be addressed in future iterations.
 
-![alt text](<UtilityTree.png>)
+![alt text](<UtilityTree.webp>)
